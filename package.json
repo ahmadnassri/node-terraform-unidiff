@@ -10,6 +10,7 @@
   },
   "license": "ISC",
   "main": "index.js",
+  "bin": "bin.js",
   "keywords": [
     "ahmad",
     "nassri",
