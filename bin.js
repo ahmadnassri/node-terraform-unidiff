@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const unidiff = require('.')
+const { readFileSync } = require('fs')
 
 process.on('uncaughtException', errorHandler)
 
@@ -15,7 +16,7 @@ if (!file) {
 }
 
 // attempt to load plan file
-const plan = require(file)
+const plan = JSON.parse(readFileSync(file))
 
 // process file
 const patches = unidiff(plan)
