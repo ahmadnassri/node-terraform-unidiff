@@ -1,7 +1,7 @@
 const { createPatch } = require('diff')
-const { safeDump } = require('js-yaml')
 const Ajv = require('ajv')
 const schema = require('./schema.json')
+const YAML = require('yaml')
 
 // setup json schema validation
 const ajv = new Ajv()
@@ -21,8 +21,8 @@ module.exports = function (plan) {
     if (resource.change.actions.includes('no-op')) continue
 
     // convert to yaml for better visibility
-    const before = safeDump(resource.change.before)
-    const after = safeDump(resource.change.after)
+    const before = YAML.stringify(resource.change.before)
+    const after = YAML.stringify(resource.change.after)
 
     const patch = createPatch(resource.address, before, after)
 
