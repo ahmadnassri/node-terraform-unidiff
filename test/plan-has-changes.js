@@ -45,10 +45,11 @@ const expected = [`Index: module.foo.baz
 `]
 
 test('plan -> has changes', assert => {
-  assert.plan(2)
+  assert.plan(3)
 
-  const patches = parse(fixture)
+  const { summary, patches } = parse(fixture)
 
   assert.equal(patches.length, 1)
   assert.same(patches, expected)
+  assert.same(summary, { create: 0, update: 1, delete: 0 })
 })

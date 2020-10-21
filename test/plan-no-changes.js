@@ -26,10 +26,11 @@ const fixture = {
 const expected = []
 
 test('plan -> no changes', assert => {
-  assert.plan(2)
+  assert.plan(3)
 
-  const patches = parse(fixture)
+  const { summary, patches } = parse(fixture)
 
   assert.equal(patches.length, 0)
   assert.same(patches, expected)
+  assert.same(summary, { create: 0, update: 0, delete: 0 })
 })

@@ -19,7 +19,9 @@ if (!file) {
 const plan = JSON.parse(readFileSync(file))
 
 // process file
-const patches = unidiff(plan)
+const { summary, patches } = unidiff(plan)
 
 // display output
 console.log(patches.join('\n\n'))
+
+console.log(`Plan: ${summary.create} to add, ${summary.update} to change, ${summary.delete} to destroy`)

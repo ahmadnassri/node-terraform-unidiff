@@ -29,5 +29,21 @@ module.exports = function (plan) {
     patches.push(patch)
   }
 
-  return patches
+  const counter = {
+    create: 0,
+    update: 0,
+    delete: 0
+  }
+
+  const summary = plan.resource_changes.reduce((counter, { change: { actions: [action] } }) => {
+    /* istanbul ignore next */
+    if (action === 'create') counter.create += 1
+    if (action === 'update') counter.update += 1
+    /* istanbul ignore next */
+    if (action === 'delete') counter.delete += 1
+
+    return counter
+  }, counter)
+
+  return { summary, patches }
 }
