@@ -21,7 +21,7 @@ const unidiff = require('@ahmadnassri/terraform-unidiff')
 
 const plan = fs.readFileSync('path/to/plan.json')
 
-const { summary, patches } = unidiff(plan) 
+const { summary, patches } = unidiff(plan)
 
 console.log(patches) // array of changes in unidiff format
 console.log(summary) // object with changes counts { create: 1, update: 3, delete: 0 }
