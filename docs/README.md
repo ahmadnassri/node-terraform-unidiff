@@ -6,7 +6,15 @@
 npx @ahmadnassri/terraform-unidiff /path/to/plan.json
 ```
 
-### library
+### Library
+
+#### Installation
+
+```bash
+npm install @ahmadnassri/terraform-unidiff
+```
+
+#### API
 
 ```js
 const unidiff = require('@ahmadnassri/terraform-unidiff')
