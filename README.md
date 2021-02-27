@@ -1,6 +1,6 @@
 # Terraform Plan Unidiff
 
-Generate a human readable diff of Terraform Plan changes, using [Unified format (`unidiff`)](https://en.wikipedia.org/wiki/Diff#Unified_format)
+Generate a human readable diff of Terraform Plan changes, using [Unified format (`unidiff`)][]
 
 [![license][license-img]][license-url]
 [![release][release-img]][release-url]
@@ -44,6 +44,8 @@ to obtain a Terraform plan in JSON format, run the following command:
 ``` bash
 terraform plan -out terraform.plan && terraform show -json terraform.plan > terraform.json
 ```
+
+  [Unified format (`unidiff`)]: https://en.wikipedia.org/wiki/Diff#Unified_format
 
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
