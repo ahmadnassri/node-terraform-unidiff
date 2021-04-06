@@ -30,7 +30,7 @@
     "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^15.0.2"
   },
   "dependencies": {
     "ajv": "^6.12.5",
