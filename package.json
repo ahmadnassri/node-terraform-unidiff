@@ -8,9 +8,14 @@
     "type": "git",
     "url": "https://github.com/ahmadnassri/node-terraform-unidiff.git"
   },
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/node-terraform-unidiff/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/ahmadnassri"
+  },
   "license": "ISC",
-  "main": "index.js",
-  "bin": "bin.js",
   "keywords": [
     "ahmad",
     "nassri",
@@ -21,16 +26,16 @@
     "index.js",
     "schema.json"
   ],
-  "bugs": {
-    "url": "https://github.com/ahmadnassri/node-terraform-unidiff/issues"
-  },
+  "main": "index.js",
+  "bin": "bin.js",
   "scripts": {
     "test": "tap test --no-coverage",
     "test:watch": "tap test --watch",
-    "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
+    "test:ci": "tap test --100",
+    "test:report": "opener coverage/lcov-report/index.html"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^15.0.9"
   },
   "dependencies": {
     "ajv": "^6.12.5",
