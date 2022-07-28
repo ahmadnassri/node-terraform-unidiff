@@ -35,11 +35,11 @@
     "test:report": "opener coverage/lcov-report/index.html"
   },
   "devDependencies": {
-    "tap": "^15.0.9"
+    "tap": "^16.3.0"
   },
   "dependencies": {
-    "ajv": "^6.12.5",
-    "diff": "^4.0.2",
-    "yaml": "^1.10.0"
+    "ajv": "^8.11.0",
+    "diff": "^5.1.0",
+    "yaml": "^2.1.1"
   }
 }
