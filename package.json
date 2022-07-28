@@ -21,6 +21,9 @@
     "nassri",
     "ahmadnassri"
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "files": [
     "bin.js",
     "index.js",
