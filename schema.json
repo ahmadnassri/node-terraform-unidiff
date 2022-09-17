@@ -27,9 +27,7 @@
           "change": {
             "type": "object",
             "required": [
-              "actions",
-              "before",
-              "after"
+              "actions"
             ]
           }
         }

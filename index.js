@@ -21,8 +21,8 @@ module.exports = function (plan) {
     if (resource.change.actions.includes('no-op')) continue
 
     // convert to yaml for better visibility
-    const before = YAML.stringify(resource.change.before)
-    const after = YAML.stringify(resource.change.after)
+    const before = YAML.stringify(resource.change.before || '')
+    const after = YAML.stringify(resource.change.after || '')
 
     const patch = createPatch(resource.address, before, after)
 
@@ -35,12 +35,24 @@ module.exports = function (plan) {
     delete: 0
   }
 
-  const summary = plan.resource_changes.reduce((counter, { change: { actions: [action] } }) => {
-    /* istanbul ignore next */
-    if (action === 'create') counter.create += 1
-    if (action === 'update') counter.update += 1
-    /* istanbul ignore next */
-    if (action === 'delete') counter.delete += 1
+  const summary = plan.resource_changes.reduce((counter, { change: { actions } }) => {
+    const action = actions.join('-')
+
+    switch (action) {
+      case 'create':
+      case 'delete-create':
+        counter.create += 1
+        break
+
+      case 'update':
+        counter.update += 1
+        break
+
+      case 'delete':
+      case 'create-delete':
+        counter.delete += 1
+        break
+    }
 
     return counter
   }, counter)
