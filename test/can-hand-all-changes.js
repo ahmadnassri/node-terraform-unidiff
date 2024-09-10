@@ -68,5 +68,5 @@ test('plan -> has changes', assert => {
   const { summary, patches } = parse(fixture)
 
   assert.equal(patches.length, 6)
-  assert.same(summary, { create: 2, update: 1, delete: 2 })
+  assert.same(summary, { create: 3, update: 1, delete: 3 })
 })

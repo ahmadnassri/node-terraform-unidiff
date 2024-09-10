@@ -35,25 +35,25 @@ module.exports = function (plan) {
     delete: 0
   }
 
+  // const summary = [...plan.resource_changes, ...plan.resource_drift].reduce((counter, { change: { actions } }) => {
   const summary = plan.resource_changes.reduce((counter, { change: { actions } }) => {
-    const action = actions.join('-')
+    for (const action of actions) {
+      switch (action) {
+        case 'create':
+        case 'delete-create':
+          counter.create += 1
+          break
 
-    switch (action) {
-      case 'create':
-      case 'delete-create':
-        counter.create += 1
-        break
+        case 'update':
+          counter.update += 1
+          break
 
-      case 'update':
-        counter.update += 1
-        break
-
-      case 'delete':
-      case 'create-delete':
-        counter.delete += 1
-        break
+        case 'delete':
+        case 'create-delete':
+          counter.delete += 1
+          break
+      }
     }
-
     return counter
   }, counter)
 
