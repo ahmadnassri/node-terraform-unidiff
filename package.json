@@ -37,6 +37,9 @@
     "test:ci": "tap test --100",
     "test:report": "opener coverage/lcov-report/index.html"
   },
+  "engine": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "tap": "^16.3.0"
   },
