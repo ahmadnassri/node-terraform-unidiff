@@ -16,7 +16,7 @@ module.exports = function (plan) {
 
   const patches = []
 
-  for (const resource of plan.resource_changes) {
+  for (const resource of plan?.resource_changes || []) {
     // skip early
     if (resource.change.actions.includes('no-op')) continue
 
@@ -36,7 +36,7 @@ module.exports = function (plan) {
   }
 
   // const summary = [...plan.resource_changes, ...plan.resource_drift].reduce((counter, { change: { actions } }) => {
-  const summary = plan.resource_changes.reduce((counter, { change: { actions } }) => {
+  const summary = (plan?.resource_changes || []).reduce((counter, { change: { actions } }) => {
     for (const action of actions) {
       switch (action) {
         case 'create':
